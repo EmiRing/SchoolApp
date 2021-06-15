@@ -1,0 +1,35 @@
+﻿@model Teacher
+
+<div class="d-flex justify-content-center" id="container">
+    <div class="wrapper">
+        <div>
+            <a asp-controller="Teacher" asp-action="ListTeachers">&larr;Back</a><br />
+            <form action="" method="post" class="form-horizontal" role="form">
+                <h4>Add a teacher:</h4>
+
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <div class="">
+                        <input type="text" id="course" asp-for="FirstName" class="form-control" autofocus required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <div class="">
+                        <input type="text" id="course" asp-for="LastName" class="form-control" />
+                    </div>
+                </div>
+                
+                <div class="form-group">
+
+                    <div class="form-row">
+                        <div class="col-md-offset-2 ">
+                            <input asp-action="AddTeacher" type="submit" name="submitButton" class="btn btn-primary" value="Add" />
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model Assignment
+
+<div class="d-flex justify-content-center" id="container">
+    <div class="wrapper">
+        <div>
+            <a asp-controller="Course" asp-action="DisplayCourse" asp-route-CourseId="@Model.CourseId">&larr;Back</a><br />
+            <form action="" method="post" class="form-horizontal" role="form">
+                <h4>Add an assignment to the course:</h4>
+
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <div class="">
+                        <input type="text" id="course" asp-for="Title" class="form-control" autofocus required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <div class="">
+                        <input type="text" id="course" asp-for="Description" class="form-control" />
+                    </div>
+                </div>
+                <input asp-for="CourseId" value="@Model.CourseId" hidden />
+
+                <div class="form-group">
+
+                    <div class="form-row">
+                        <div class="col-md-offset-2 ">
+                            <input asp-action="AddAssignment" type="submit" name="submitButton" class="btn btn-primary" value="Add" />
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

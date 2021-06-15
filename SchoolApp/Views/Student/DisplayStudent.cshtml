@@ -1,0 +1,33 @@
+﻿@model StudentViewModel
+
+<div class="d-flex justify-content-center" id="container">
+    <div class="wrapper">
+        <div>
+            <a asp-controller="Student" asp-action="ListStudents">&larr;Back</a><br />
+            <h2>@Model.Student.FullName</h2>
+            
+            <p>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><h4>Courses:</h4></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var course in Model.Student.Courses)
+                        {
+                            <tr>
+                                <td>
+                                    @course.CourseName
+                                </td>
+
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                                <a asp-controller="Student" asp-action="AddCourseToStudent" asp-route-StudentId="@Model.Student.Id">+Add course to student</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>

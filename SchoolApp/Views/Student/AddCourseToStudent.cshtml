@@ -1,0 +1,34 @@
+﻿@model CourseToStudent
+
+<div class="d-flex justify-content-center" id="container">
+    <div class="wrapper">
+        <div>
+            <a asp-controller="Student" asp-action="DisplayStudent" asp-route-StudentId="@Model.StudentId">&larr;Back</a><br />
+            <form action="" method="post" class="form-horizontal" role="form">
+                <h4>Add courses for the student:</h4>
+                <div>
+                    <ul>
+                        @foreach (var course in Model.Courses)
+                        {
+                            <li>
+                                <input type="checkbox" name="CourseId" value="@course.CourseId" />
+                                @course.CourseName
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <input asp-for="StudentId" value="@Model.StudentId" hidden />
+
+                <div class="form-group">
+
+                    <div class="form-row">
+                        <div class="col-md-offset-2 ">
+                            <input asp-action="AddCourseToStudent" type="submit" name="submitButton" class="btn btn-primary" value="Add" />
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

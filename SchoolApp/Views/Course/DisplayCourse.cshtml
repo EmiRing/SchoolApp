@@ -1,0 +1,63 @@
+﻿@model CourseViewModel
+
+<div class="d-flex justify-content-center" id="container">
+    <div class="wrapper">
+        <div>
+            <a asp-controller="Course" asp-action="CourseList">&larr;Back</a><br />
+            <h2>@Model.GetCourse.CourseName</h2>
+            <p>Teacher: @Model.GetTeacher.FullName</p>
+            <p>
+                <table class="assignmentList">
+                    <thead>
+                        <tr>
+                            <td><h4>Assignments:</h4></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var assignment in Model.Assignments)
+                        {
+                            <tr>
+                                <td>
+                                    @assignment.Title
+                                </td>
+                                <td>
+                                    @assignment.Description
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                                <a asp-controller="Assignment" asp-action="AddAssignment" asp-route-CourseId="@Model.GetCourse.CourseId">+Add assignment</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+            <p>
+                <table>
+                    <thead>
+                        <tr>
+                            <td><h4>Students:</h4></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var student in Model.GetCourse.Students)
+                        {
+                            <tr>
+                                <td>
+                                    @student.FullName
+                                </td>
+
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                                <a asp-controller="Course" asp-action="AddStudentsToCourse" asp-route-CourseId="@Model.GetCourse.CourseId">+Add students to course</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </div>
+    </div>
+</div>

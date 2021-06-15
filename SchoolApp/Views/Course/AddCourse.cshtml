@@ -1,0 +1,42 @@
+﻿@model AddCourseViewModel
+
+<div class="d-flex justify-content-center" id="container">
+    <div class="wrapper">
+        <div>
+            <a asp-controller="Course" asp-action="CourseList">&larr;Back</a><br />
+            <form action="" method="post" class="form-horizontal" role="form">
+                <h4>Please enter course name and pick a teacher.</h4>
+
+
+                <div class="form-group">
+                    <label asp-for="course.CourseName" class="control-label"></label>
+                    <div class="">
+                        <input type="text" id="course" asp-for="course.CourseName" class="form-control" autofocus required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="course.TeacherId" class="control-label"></label>
+                    <div class="">
+                        <select type="text" id="teacher" asp-for="course.TeacherId" class="form-control" required>
+
+                            <option value=""></option>
+                            @foreach (var teacher in Model.Teachers)
+                            {
+                                <option value="@teacher.Id">@teacher.FullName</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="form-row">
+                        <div class="col-md-offset-2 ">
+                            <input asp-action="AddCourse" type="submit" name="submitButton" class="btn btn-primary" value="Add" />
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
